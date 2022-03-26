@@ -9,7 +9,7 @@ import kotlin.coroutines.CoroutineContext
 
 public class Yoki(
     public val engine: YokiEngine,
-    public val config: YokiConfig<*>
+    public val config: YokiConfig
 ) : CoroutineScope {
 
     private val job = Job(engine.coroutineContext[Job])
@@ -19,12 +19,12 @@ public class Yoki(
 @YokiDsl
 public fun <T : YokiEngineConfig> Yoki(
     factory: YokiEngineFactory<T>,
-    block: YokiConfig<T>.() -> Unit = {}
+    block: YokiConfigFactory<T>.() -> Unit = {}
 ): Yoki {
-    val config = YokiConfig<T>().apply(block)
+    val config = YokiConfigFactory<T>().apply(block)
     val engine = factory.create(config.engineConfig)
 
-    return Yoki(engine, config)
+    return Yoki(engine, YokiConfig(engine, config.logger))
 }
 
 /**

@@ -13,3 +13,4 @@ rootProject.name = "yoki"
 include("yoki-core")
 include("yoki-engine-docker")
 include("yoki-protocol")
+include("yoki-logging")

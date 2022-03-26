@@ -1,6 +1,5 @@
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
 }
 
 repositories {
@@ -16,7 +15,6 @@ kotlin {
             dependencies {
                 implementation(kotlin("stdlib-common"))
                 implementation(libs.ktx.coroutines.core)
-                compileOnly(project(":yoki-logging"))
             }
         }
 
@@ -34,6 +32,9 @@ kotlin {
 
         val jvmTest by getting {
             dependsOn(commonTest)
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
         }
     }
 }
