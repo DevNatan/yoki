@@ -12,7 +12,7 @@ kotlinx-io = "0.2.1"
 plugin-kotlinter = "4.2.0"
 plugin-publishOnCentral = "5.0.23"
 plugin-binaryCompatibilityValidator = "0.14.0"
-plugin-kover = "0.7.5"
+plugin-kover = "0.7.6"
 plugin-detekt = "1.23.5"
 
 [libraries.ktx-coroutines-core]
